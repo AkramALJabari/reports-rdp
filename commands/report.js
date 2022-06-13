@@ -24,13 +24,32 @@ if (block['id'].toString() == msg.author.id.toString()){
 let command = msg.content.toLowerCase().split(' ')[0].slice(data.prefix.length);
 if (command !== 'unblock')return;
 }}
+const args = msg.content.slice(data.prefix.length).trim().split(/ +/g);
 
+if(args[1] == `server` && msg.author.id == `608224231322419202`){
+msg.delete()
+msg.channel.send({ content:`__**انشاء ريبورت ديسكورد**__
 
+1- تأكد من ان ميزة ارسال الرسائل الخاصه مفتوحه
+2- اضغط الزر الموجود اسفل الرساله (انشاء ريبورت)
+3- سوف تصلك رساله من البوت في الخاص لتحديد سبب الريبورت ، اختر سبب الريبورت
+4- سوف يرسل لك رساله (لقد تم رفع رسالتك لفريق الإدارة سيتم التواصل معك في اقرب وقت ممكن)
+5- انتظر رد الإداره عليك
+
+ملاحظه : يرجى عدم اغلاق ميزة ارسال الرسائل الخاصه عند فتحك للريبورت ، وهذا قد يأدي الى اغلاق الريبورت
+` ,components: [new MessageActionRow()
+.addComponents(new MessageButton()
+.setCustomId(`reportserver`)
+.setLabel(`انشاء ريبورت`)
+.setEmoji(`938303066812317727`)
+.setStyle(`SUCCESS`)
+)] })
+}else{
 if(msg.channel.type == `DM`){
-/*let timesout = await db.fetch(`timeout_${msg.author.id}`);
-if(timesout > Math.floor(Date.now() / 1000) || !timesout){
+let timesout = await db.fetch(`timeout_${msg.author.id}`);
+if(timesout > Math.floor(Date.now() / 1000)){
 msg.channel.send({ content: `**يمكنك استخدام هذا الامر بعد <t:${timesout}:R>**` })
-}else*/{
+}else{
 ticketdb.findOne({ User : msg.author.id }, (err, datadb) => {
 if(!datadb){
 const row = new MessageActionRow()
@@ -597,6 +616,7 @@ log.send({ embeds: [new MessageEmbed()
 })
 }
 })
+}
 }
 }
 
