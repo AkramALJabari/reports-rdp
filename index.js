@@ -942,4 +942,4 @@ interaction.reply({ content:`**لا يمكنك فتح اكثر من ريبورت
 
   
 //token
-client.login(`OTM4MDU4NjU2NTU2MTMwMzU0.YfkxNA.BBFgJTkQIYzVPqfhSNxNUfZF8Ck`);
+client.login(`OTM4MDU4NjU2NTU2MTMwMzU0.GRbkV_.jFARgtQt2ZN4Ql-yFPBLkxJOFZ4P3k4goZuJnA`);
